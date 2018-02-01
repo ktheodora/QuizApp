@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="intro_text">UNESCO QUIZ \nHow much do you know about our Worldwide Heritage?</string>
+    <string name="first_question_text">Question No.1:  Which country do you believe has the largest area of natural and/or mixed World Heritage sites?</string>
+    <string name="first_answer_hint">Write the name of the country</string>
+    <string name="second_question_text">Question No.2: How many countries have an area designated as a natural or mixed World Heritage Site, as of 2017?</string>
+    <string name="secondquestionrb1">119</string>
+    <string name="secondquestionrb2">153</string>
+    <string name="secondquestionrb3">102</string>
+    <string name="thirdquestiontext">Question No.3: Which of these sites are one of those who were included at the very first World Heritage list that was made in 1978?</string>
+    <string name="third_question_checkbox1">Yellowstone National Park</string>
+    <string name="third_question_checkbox2">Great Barier Reef</string>
+    <string name="third_question_checkbox3">Parthenon of Athens</string>
+    <string name="third_question_checkbox4">Aachen Cathedral</string>
+    <string name="questionfourtext">Question No.4: How many World Heritage sites exist in the world, as of 2017?</string>
+    <string name="fourthquestionrb1">1052</string>
+    <string name="fourthquestionrb2">1102</string>
+    <string name="fourthquestionrb3">992</string>
+    <string name="questionfivetext">Question no.5: Which of these sites are included at the 10 most visited World Heritage sites?</string>
+    <string name="fifth_question_checkbox1">Byblos, Lebanon</string>
+    <string name="fifth_question_checkbox2">Ironbridge Gorge, UK</string>
+    <string name="fifth_question_checkbox3">Persepolis, Iran</string>
+    <string name="fifth_question_checkbox4">Historic Centre of Guimaraes, Portugal</string>
+    <string name="submit_text">SUBMIT</string>
+    <string name="photo_descr">WorldWide Sites</string>
+</resources>
