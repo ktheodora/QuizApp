@@ -7,6 +7,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 import android.view.View;
+import android.content.Intent;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,8 +24,15 @@ public class MainActivity extends AppCompatActivity {
         //check for question 1
         EditText firstanswer = (EditText)findViewById(R.id.first_answer_edit_text);
         String answerone = firstanswer.getText().toString().toLowerCase();
-        if (answerone.equals("usa") || answerone.equals("united states of america") || answerone.equals("united states")) {
-            result++;
+        if (Locale.getDefault().getLanguage().equals("fr")) {
+            if (answerone.equals("etats-unis") || answerone.equals("é.-u.a.") || answerone.equals("usa")) {
+                result++;
+            }
+        }
+        else {
+            if (answerone.equals("usa") || answerone.equals("united states of america") || answerone.equals("united states")) {
+                result++;
+            }
         }
         //check for question 2
         RadioButton rbquestion2 = (RadioButton) findViewById(R.id.second_answer_B_correct);
@@ -71,14 +81,39 @@ public class MainActivity extends AppCompatActivity {
         if (count == 4) {
             result++;
         }
-        //show the toaster with the final result
-        String toastmsg;
-        if (result < 5){
-            toastmsg = "You got " + result + " out of 5. Better luck next time!";
+        //if the language of the phone is french
+        if (Locale.getDefault().getLanguage().equals("fr")) {
+            String toastmsg;
+            if (result < 5){
+                toastmsg = "Tu as " + result + " sur 5. Plus de chance la prochaine fois!";
+            }
+            else {
+                toastmsg = "Félicitations! Vous savez tout!";
+
+            }
+            Toast.makeText(MainActivity.this, toastmsg, Toast.LENGTH_LONG).show();
+            //and we give the user the option to share his/her results
+            Intent myintent = new Intent(); myintent.setAction(Intent.ACTION_SEND);
+            myintent.setType("text/plain");
+            myintent.putExtra(Intent.EXTRA_TEXT, ("Mon résultat de UNESCO Quiz est " + result + " sur 5!"));
+            startActivity(Intent.createChooser(myintent, ("Ton résultat est " + result + " sur 5. Partagez via:")));
         }
-        else {
-            toastmsg = "Congrats! You nailed the UNESCO Quiz!";
+        else { //if the language is any other show in english
+            //show the toaster with the final result
+            String toastmsg;
+            if (result < 5){
+                toastmsg = "You got " + result + " out of 5. Better luck next time!";
+            }
+            else {
+                toastmsg = "Congrats! You nailed the UNESCO Quiz!";
+
+            }
+            Toast.makeText(MainActivity.this, toastmsg, Toast.LENGTH_LONG).show();
+            //and we give the user the option to share his/her results
+            Intent myintent = new Intent(); myintent.setAction(Intent.ACTION_SEND);
+            myintent.setType("text/plain");
+            myintent.putExtra(Intent.EXTRA_TEXT, ("My UNESCO Quiz Result is " + result + " out of 5!"));
+            startActivity(Intent.createChooser(myintent, ("Your result is " + result + " out of 5. Share via:")));
         }
-        Toast.makeText(MainActivity.this, toastmsg, Toast.LENGTH_LONG).show();
     }
 }
